@@ -1,7 +1,7 @@
 # llvm-pass-skeleton
 
 A completely useless LLVM pass.
-It's for LLVM 3.8. --> gonna be updated for llvm 10
+Both function pass (master) and Runtime library (on branch) tetsed with LLVM 8.
 
 Build:
 

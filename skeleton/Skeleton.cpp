@@ -30,6 +30,9 @@ namespace {
             builder.SetInsertPoint(&B, ++builder.GetInsertPoint());
 
             // Insert a call to our function.
+            // Name of OP and name of variable (IR register) that contain the result of operation are the same
+            // %add = add nsw i32 %0, 2
+            // call void @logop(i32 %add)
             Value* args[] = {op};
             builder.CreateCall(logFunc, args);
 

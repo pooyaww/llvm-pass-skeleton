@@ -10,6 +10,7 @@ namespace {
     static char ID;
     SkeletonPass() : FunctionPass(ID) {}
 
+    // It is called for each function
     virtual bool runOnFunction(Function &F) {
       errs() << "In a function called " << F.getName() << "!\n";
 
@@ -17,10 +18,12 @@ namespace {
       //F.dump(); Out-of-Date: no more dump support in modern llvm unless you enable it at compile time.
       F.print(llvm::errs());
 
+      // Basic Block on current function
       for (auto &B : F) {
         errs() << "Basic block:\n";
         B.print(llvm::errs(), true);
 
+        // Instructions in current Basic Block
         for (auto &I : B) {
           errs() << "Instruction: ";
           I.print(llvm::errs(), true);
